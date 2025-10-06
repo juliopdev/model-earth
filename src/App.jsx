@@ -159,7 +159,7 @@ function Earth({ onLocationClick, selectedLocation }) {
   // Loads the Earth texture map from the asset path.
   const [colorMap] = useLoader(
   THREE.TextureLoader,
-  [`${baseUrl}assets/textures/3d-earth-model-relief3.jpg`]
+  [`${baseUrl}assets/textures/3d-earth-model-relief.jpg`]
 );
 
   // Animation loop using useFrame (runs every frame)
