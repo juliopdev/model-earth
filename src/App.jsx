@@ -40,7 +40,7 @@ const satellites = [
     color: '#ff4d4d',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/AQUA.glb',
+    model: `${baseUrl}assets/satellites/AQUA.glb`,
     scale: 0.008,
   },
   {
@@ -51,7 +51,7 @@ const satellites = [
     color: '#ffcc00',
     orbitInclination: (66 * Math.PI) / 180,
     eccentricity: 0.002,
-    model: '/assets/satellites/AQUARIOUS.glb',
+    model: `${baseUrl}assets/satellites/AQUARIOUS.glb`,
     scale: 0.018,
   },
   {
@@ -62,7 +62,7 @@ const satellites = [
     color: '#33cc33',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/AURA.glb',
+    model: `${baseUrl}assets/satellites/AURA.glb`,
     scale: 0.003,
   },
   {
@@ -73,7 +73,7 @@ const satellites = [
     color: '#ff66cc',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/CALIPSO.glb',
+    model: `${baseUrl}assets/satellites/CALIPSO.glb`,
     scale: 0.001,
   },
   {
@@ -84,7 +84,7 @@ const satellites = [
     color: '#ff9933',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/Cloudsat.glb',
+    model: `${baseUrl}assets/satellites/Cloudsat.glb`,
     scale: 0.02,
   },
   {
@@ -95,7 +95,7 @@ const satellites = [
     color: '#9933ff',
     orbitInclination: (65 * Math.PI) / 180,
     eccentricity: 0.002,
-    model: '/assets/satellites/Global-Precipitation-Measurement.glb',
+    model: `${baseUrl}assets/satellites/Global-Precipitation-Measurement.glb`,
     scale: 0.0005,
   },
   {
@@ -106,7 +106,7 @@ const satellites = [
     color: '#00cc99',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/Landsat8.glb',
+    model: `${baseUrl}assets/satellites/Landsat8.glb`,
     scale: 0.003,
   },
   {
@@ -117,7 +117,7 @@ const satellites = [
     color: '#ff3366',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/OCO2.glb',
+    model: `${baseUrl}assets/satellites/OCO2.glb`,
     scale: 0.003,
   },
   {
@@ -128,7 +128,7 @@ const satellites = [
     color: '#3399ff',
     orbitInclination: (66 * Math.PI) / 180,
     eccentricity: 0.0008,
-    model: '/assets/satellites/OSTM-Jason-2.glb',
+    model: `${baseUrl}assets/satellites/OSTM-Jason-2.glb`,
     scale: 0.1,
   },
   {
@@ -139,7 +139,7 @@ const satellites = [
     color: '#cc33cc',
     orbitInclination: (98.2 * Math.PI) / 180,
     eccentricity: 0.001,
-    model: '/assets/satellites/SMAP.glb',
+    model: `${baseUrl}assets/satellites/SMAP.glb`,
     scale: 0.012,
   },
 ];
