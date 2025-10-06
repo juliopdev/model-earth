@@ -477,7 +477,7 @@ function Astronaut({ initialPosition }) {
     clonedScene.traverse((child) => {
       if (child.isMesh) {
         child.material = child.material.clone();
-        child.material.emissive = new THREE.Color('#20b8cfef');
+        child.material.emissive = new THREE.Color('#0ac4caff');
         child.material.emissiveIntensity = 0.3;
         child.material.metalness = 0.6;
         child.material.roughness = 0.4;
@@ -538,7 +538,7 @@ function SpaceStation() {
       <group ref={stationRef}>
         <StationModel
           modelPath={`${baseUrl}/assets/characters/International-Space-Station.glb`}
-          color="#20b8cfef"
+          color="#0ac4caff"
           scale={0.08}
         />
       </group>
