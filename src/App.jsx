@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, Suspense, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls, Sphere, Html, Stars, useGLTF } from '@react-three/drei';
+import { OrbitControls, Sphere, Html, Stars, useGLTF, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Wind, Droplets, Sun, Thermometer, Eye, Loader2, Activity, Zap, Minimize, Maximize, AlertCircle, ChevronRight, GripHorizontal } from 'lucide-react';
@@ -143,6 +143,32 @@ const satellites = [
     scale: 0.012,
   },
 ];
+
+function Loader() {
+  const { progress } = useProgress();
+  const percent = Math.round(progress);
+  
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center">
+        <div className="w-64 h-2 bg-gray-700 rounded-full overflow-hidden mb-3">
+          <div 
+            className="h-full bg-cyan-400 transition-all duration-100 ease-linear" 
+            style={{ width: `${percent}%` }}
+          />
+        </div>
+        <p className="text-cyan-400 text-lg font-mono">
+          Cargando Planeta... {percent}%
+        </p>
+        {percent < 100 && (
+          <p className="mt-2 text-xs text-gray-400 italic">
+            El planeta es grande ({percent}MB)... Gracias por tu paciencia.
+          </p>
+        )}
+      </div>
+    </Html>
+  );
+}
 
 // --- 3D Components ---
 
@@ -451,7 +477,7 @@ function Astronaut({ initialPosition }) {
     clonedScene.traverse((child) => {
       if (child.isMesh) {
         child.material = child.material.clone();
-        child.material.emissive = new THREE.Color('#ffffff');
+        child.material.emissive = new THREE.Color('#20b8cfef');
         child.material.emissiveIntensity = 0.3;
         child.material.metalness = 0.6;
         child.material.roughness = 0.4;
@@ -512,7 +538,7 @@ function SpaceStation() {
       <group ref={stationRef}>
         <StationModel
           modelPath={`${baseUrl}/assets/characters/International-Space-Station.glb`}
-          color="#f6e0b5"
+          color="#20b8cfef"
           scale={0.08}
         />
       </group>
@@ -1016,7 +1042,7 @@ export default function App() {
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           {/* Suspense is required for components using useLoader/useGLTF/useTexture */}
-          <Suspense fallback={null}> 
+          <Suspense fallback={<Loader />}> 
             <Earth 
               onLocationClick={handleLocationClick}
               selectedLocation={selectedLocation}
