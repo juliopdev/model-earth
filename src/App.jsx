@@ -6,6 +6,7 @@ import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
 import { Wind, Droplets, Sun, Thermometer, Eye, Loader2, Activity, Zap, Minimize, Maximize, AlertCircle, ChevronRight, GripHorizontal } from 'lucide-react';
 import { formatDateWithoutHyphen, formatDisplayDate } from './utils/formatter';
 import { fetchNASAData } from './utils/fetchNASAData';
+const baseUrl = import.meta.env.BASE_URL;
 
 // === CONFIGURATION DATA (LOCATIONS AND SATELLITES) ===
 
@@ -158,7 +159,7 @@ function Earth({ onLocationClick, selectedLocation }) {
   // Loads the Earth texture map from the asset path.
   const [colorMap] = useLoader(
   THREE.TextureLoader,
-  ['/assets/textures/3d-earth-model-relief3.jpg']
+  [`${baseUrl}assets/textures/3d-earth-model-relief3.jpg`]
 );
 
   // Animation loop using useFrame (runs every frame)
@@ -441,7 +442,7 @@ function StationModel({ modelPath, color, scale = 0.1 }) {
  */
 function Astronaut({ initialPosition }) {
   const astronautRef = useRef();
-  const { scene: astronautScene } = useGLTF('/assets/characters/Spacesuit.glb');
+  const { scene: astronautScene } = useGLTF(`${baseUrl}/assets/characters/Spacesuit.glb`);
 
   // Clone and modify the astronaut scene for styling.
   const clonedAstronautScene = useMemo(() => {
@@ -510,7 +511,7 @@ function SpaceStation() {
     <group ref={groupRef}>
       <group ref={stationRef}>
         <StationModel
-          modelPath="/assets/characters/International-Space-Station.glb"
+          modelPath={`${baseUrl}/assets/characters/International-Space-Station.glb`}
           color="#f6e0b5"
           scale={0.08}
         />
@@ -991,7 +992,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-cyan-500/30 blur-lg rounded-full"></div>
                 <img
                   className="relative"
-                  src="/logo-removebg.png"
+                  src={`${baseUrl}logo-removebg.png`}
                   alt="Logo"
                   style={{ width: "100px", height: "100px" }}
                 />
